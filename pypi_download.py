@@ -53,7 +53,7 @@ final_data = final_data.loc[mask]
 # Plot combined results
 #final_data['Date'] = pd.to_datetime(final_data['Date']).dt.strftime('%Y-%m-%d')
 chart = sns.barplot(x='Date', y='downloads', hue='Package', data=final_data)
-chart.set_xticklabels(labels=final_data['Date'], rotation=90)
+chart.set_xticklabels(labels=final_data['Date'].dt.strftime('%Y-%m-%d'), rotation=90)
 st.pyplot()
 
 if (st.checkbox("Show Data", key='downloads')):
